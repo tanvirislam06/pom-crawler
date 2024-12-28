@@ -1,0 +1,21 @@
+{
+  "name": "webdriverio-pom-crawler",
+  "version": "1.0.0",
+  "description": "A CLI tool to crawl web pages and generate POMs.",  
+  "main": "src/cli.js",
+  "bin": {
+    "pom-generator": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "fs-extra": "^11.2.0",
+    "prettier": "^3.4.2",
+    "puppeteer": "^23.11.1"
+  }
+}

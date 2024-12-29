@@ -16,10 +16,10 @@ async function crawlPage(url) {
     document.querySelectorAll("*").forEach((el) => {
       let uniqueSelector = "";
 
-      if (el.id) {
-        uniqueSelector = `#${el.id}`;
-      } else if (el.getAttribute("data-test")) {
+      if (el.getAttribute("data-test")) {
         uniqueSelector = `[data-test='${el.getAttribute("data-test")}']`;
+      } else if (el.id) {
+        uniqueSelector = `#${el.id}`;
       }
 
       if (uniqueSelector) {

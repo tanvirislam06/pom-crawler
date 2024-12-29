@@ -15,9 +15,14 @@ const camelCase = (str) =>
 
 // Function to generate meaningful and descriptive variable names
 const getDescriptiveName = (el, index) => {
-  if (el.text.length > 0) {
-    return camelCase(el.text); // Use the inner text of the element
-  } else if (el.selector.startsWith("[data-test='")) {
+  // innerText can be very long and may not be suitable for variable names
+  // Uncomment the following line if you want to use innerText
+  // Future enhancement: Truncate the text to a reasonable length
+  // Future enhancement: Use machine learning to generate more descriptive names
+  // if (el.text.length > 0) {
+  //     return camelCase(el.text); // Use the inner text of the element
+  //   } else
+  if (el.selector.startsWith("[data-test='")) {
     const attributeValue = el.selector.match(/data-test='([^']+)'/)[1];
     return camelCase(attributeValue); // Use the value of the `data-test` attribute
   } else if (el.selector.startsWith("#")) {

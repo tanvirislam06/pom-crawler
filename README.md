@@ -108,10 +108,6 @@ class DemoApplitoolsCom {
     this.loginButton = "[data-test-id='login-button']"; // Login
     this.learnMore = "[data-test-id='learn-more']"; // Learn More
   }
-
-  getElementByName(name) {
-    return this[name];
-  }
 }
 
 module.exports = new DemoApplitoolsCom();

@@ -16,8 +16,8 @@ async function crawlPage(url) {
     document.querySelectorAll("*").forEach((el) => {
       let uniqueSelector = "";
 
-      if (el.getAttribute("data-test")) {
-        uniqueSelector = `[data-test='${el.getAttribute("data-test")}']`;
+      if (el.getAttribute("data-test-id")) {
+        uniqueSelector = `[data-test-id='${el.getAttribute("data-test-id")}']`;
       } else if (el.id) {
         uniqueSelector = `#${el.id}`;
       }

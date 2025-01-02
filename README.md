@@ -1,11 +1,11 @@
 # Page Object Model Generator CLI
 
-This project provides a command-line tool to crawl web pages and generate **Page Object Models (POM)**, which can be used in automated UI testing frameworks like WebdriverIO. The tool uses Puppeteer to extract elements with stable attributes (e.g., `data-test`, `id`) and outputs structured POM files.
+This project provides a command-line tool to crawl web pages and generate **Page Object Models (POM)**, which can be used in automated UI testing frameworks like WebdriverIO. The tool uses Puppeteer to extract elements with stable attributes (e.g., `data-test-id`, `id`) and outputs structured POM files.
 
 ---
 
 ## **Features**
-- **Web Crawling**: Extracts elements with `data-test` and `id` attributes from web pages.
+- **Web Crawling**: Extracts elements with `data-test-id` and `id` attributes from web pages.
 - **POM Generation**: Creates JavaScript files that represent Page Object Models for automated testing.
 - **Dynamic Class Naming**: The class name is based on the title of the crawled page.
 - **Command-Line Interface**: Easy-to-use CLI for generating POMs with custom URLs and output directories.
@@ -76,10 +76,10 @@ pom-generator generate -u https://demo.applitools.com/ -o ./generatedPOM
 ## **How It Works**
 
 1. **Crawler**
-   - The `crawlPage` function uses Puppeteer to load the webpage and extract elements with `data-test` and `id` attributes.
+   - The `crawlPage` function uses Puppeteer to load the webpage and extract elements with `data-test-id` and `id` attributes.
    - Each extracted element includes:
      - `tagName`: The HTML tag (e.g., `DIV`, `BUTTON`).
-     - `selector`: A unique selector based on `data-test` or `id`.
+     - `selector`: A unique selector based on `data-test-id` or `id`.
      - `text`: The visible inner text of the element.
 
 2. **Generator**
@@ -96,8 +96,8 @@ pom-generator generate -u https://demo.applitools.com/ -o ./generatedPOM
 For a page with the following elements:
 ```html
 <div id="header">Header Content</div>
-<button data-test="login-button">Login</button>
-<a href="#" data-test="learn-more">Learn More</a>
+<button data-test-id="login-button">Login</button>
+<a href="#" data-test-id="learn-more">Learn More</a>
 ```
 
 The generated POM file will look like:
@@ -105,8 +105,8 @@ The generated POM file will look like:
 class DemoApplitoolsCom {
   constructor() {
     this.header = "#header"; // Header Content
-    this.loginButton = "[data-test='login-button']"; // Login
-    this.learnMore = "[data-test='learn-more']"; // Learn More
+    this.loginButton = "[data-test-id='login-button']"; // Login
+    this.learnMore = "[data-test-id='learn-more']"; // Learn More
   }
 
   getElementByName(name) {
@@ -120,7 +120,7 @@ module.exports = new DemoApplitoolsCom();
 ---
 
 ## **Error Handling**
-- **No Elements Found**: If no elements with `data-test` or `id` are found, the program logs an error and exits.
+- **No Elements Found**: If no elements with `data-test-id` or `id` are found, the program logs an error and exits.
 - **Invalid URL**: Ensure the URL is accessible and loads correctly.
 
 ---

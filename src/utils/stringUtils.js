@@ -22,9 +22,9 @@ const getDescriptiveName = (el, index) => {
   // if (el.text.length > 0) {
   //     return camelCase(el.text); // Use the inner text of the element
   //   } else
-  if (el.selector.startsWith("[data-test='")) {
-    const attributeValue = el.selector.match(/data-test='([^']+)'/)[1];
-    return camelCase(attributeValue); // Use the value of the `data-test` attribute
+  if (el.selector.startsWith("[data-test-id='")) {
+    const attributeValue = el.selector.match(/data-test-id='([^']+)'/)[1];
+    return camelCase(attributeValue); // Use the value of the `data-test-id` attribute
   } else if (el.selector.startsWith("#")) {
     return camelCase(el.selector.slice(1)); // Use the `id` value, removing the #
   } else {

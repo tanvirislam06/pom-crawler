@@ -16,7 +16,7 @@ This project provides a command-line tool to crawl web pages and generate **Page
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/your-repo-name/pom-generator.git
+git clone https://github.com/tanvirislam06/pom-generator.git
 cd pom-generator
 ```
 
